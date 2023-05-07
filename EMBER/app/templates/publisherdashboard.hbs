@@ -1,0 +1,102 @@
+	<div id="mySidenav" class="sidenav">
+	<p class="logo"><span style="color: #72A0C1;">Zoho </span>
+    Library Portal</p>
+  {{!-- <div class="username"><p class="p-username">Kiran S</p></div><br> --}}
+  <LinkTo @route="readerdashboard" @model="0" {{action "toggleReaderMode"}}><i class="fa fa-retweet"></i> &nbsp;&nbsp;Reader Mode</LinkTo>
+  <a href="#" class={{if this.isPublishedBooksVisible "icon-a"}} {{action "getBooks"}} {{action "togglePublishedBooksVisible" }}><i class="fa fa-book"></i> &nbsp;&nbsp;Published Books</a>
+  <a href="#" class={{if this.isReadersVisible "icon-a"}} {{action  "getReaders"}} {{action "toggleReadersVisible"}}><i class="fa fa-list icons"></i> &nbsp;&nbsp;Readers</a>
+  <a href="#" class={{if this.isProfileVisible "icon-a"}} {{action "getProfile"}} {{action "toggleisProfileVisible"}}><i class="fa fa-user"></i> &nbsp;&nbsp;Profile</a>
+   <a href="#" {{action "Logout"}}><i class="fa fa-sign-out"></i> &nbsp;&nbsp;Logout</a>
+</div>
+<div class="card-container">
+  {{#if this.isPublishedBooksVisible}}
+  
+  {{#each this.mybooks as |book|}}
+
+<div class="card">
+  <div class="card-side front">
+    <div><img src="{{book.image}}"></div>
+  </div>
+  <div class="card-side back">
+    <div>
+       <div class="title" style=" margin-left: 7px;margin-right:7px;">{{book.title}}</div>
+     <p class="main-p" style=" margin-left: 7px;margin-right:7px;"> <p class="label">ISBN</p><p class="field">{{book.ISBN}}</p></p>
+      <p class="main-p" style=" margin-left: 7px;margin-right:7px;"><p class="label">Author</p><p class="field">{{book.authorNo}}</p></p>
+      <p class="price" style=" margin-left: 7px;margin-right:7px;">₹ {{book.price}}</p>
+     <div style=" margin-left: 7px;margin-right:7px;"><p class="description"> {{book.bookInfo}}</p></div>
+   
+
+    
+       
+      
+    </div>
+  </div>
+</div>
+{{/each}}
+  {{/if}}
+  {{#if this.isReadersVisible}}
+  <div class="book-container-p">&nbsp; &nbsp;MY READERS</div>
+    <div class="history-table" style="margin-left:300px ;">
+          <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Reader Id</th>
+          <th>Reader Name</th>
+          <th>Reader Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each this.readers as |readers|}}
+        <tr>
+          <td>{{readers.title}}</td>
+          <td>{{readers.id}}</td>
+          <td>{{readers.first_name}}&nbsp;{{readers.last_name}}</td>
+          <td>{{readers.email}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    </div>
+
+  {{/if}}
+  {{#if this.isProfileVisible}}
+    <div class="profile">
+  <div class="profile-data">
+    {{#each this.profile as |profile|}}
+  <div class="grid-item"><p class="name">{{profile.first_name}}&nbsp;{{profile.last_name}}</p></div>
+  <div class="grid-item" style="display:flex ;"><p class="label">ID</p><p class="value"> &nbsp;{{profile.id}}</p></div>
+  <div class="grid-item"><p class="email-label">{{profile.email}}</p></div>  
+  <div class="grid-item"><p class="email-label">{{profile.mobile_no}}</p></div>
+  <div class="grid-item"><p class="email-label" style="color:white ;">{{profile.address}}</p></div>
+    {{/each}}
+  </div>
+  <div class="history-table">
+    <p>RECENT TRANSACTIONS</p>
+    <table >
+      <thead>
+        <tr>
+          <th>ISBN</th>
+          <th>Title</th>
+          <th>Issue Date</th>
+          <th>Return Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each this.history as |history|}}
+        <tr>
+          <td>{{history.ISBN}}</td>
+          <td>{{history.title}}</td>
+          <td>{{history.issue_date}}</td>
+          <td>{{history.return_date}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+  </div>
+  </div>
+  {{/if}}
+
+
+</div>

@@ -1,0 +1,241 @@
+
+	<div id="mySidenav" class="sidenav">
+	<p class="logo"><span style="color: #72A0C1;">Zoho </span>
+    Library Portal</p>
+  {{!-- <div class="username"><p class="p-username">Kiran S</p></div><br> --}}
+  <a href="" class={{if this.isBookCatalogueDivVisible "icon-a"}} {{action "getBookCatalogue"}} {{action "toggleisBookCatalogueDivVisible"}}><i class="fa fa-book"></i> &nbsp;&nbsp;Book Catalogue</a>
+  <a href="#" class={{if this.isReturnBookDivVisible "icon-a"}}  {{action "getReturnBooks"}} {{action "toggleisReturnBookDivVisible"}}><i class="fa fa-users icons"></i> &nbsp;&nbsp;Return Books</a>
+  <a href="#" class={{if this.isPayDueDivVisible "icon-a"}}  {{action "getDue"}}{{action "toggleisPayDueDivVisible"}}><i class="fa fa-inr"></i> &nbsp;&nbsp;Pay Due</a>
+  {{#if (eq this.myVariable "1")}}
+  <a href="#" class={{if this.isProfileVisible "icon-a"}}  {{action "getProfile"}}{{action "toggleisProfileVisible"}}><i class="fa fa-user"></i> &nbsp;&nbsp;Profile</a>
+  
+  
+  <a href="#"  {{action "Logout"}}><i class="fa fa-sign-out"></i> &nbsp;&nbsp;Logout</a>
+{{else}}
+  
+  <LinkTo @route="publisherdashboard" ><i class="fa fa-chevron-left"></i> &nbsp;&nbsp;Back</LinkTo>
+{{/if}}
+  
+
+
+</div>
+
+<div class="card-container">
+{{#if this.isBookCatalogueDivVisible}}
+{{#each this.bookCatalogue as |book|}}
+
+<div class="card">
+  <div class="card-side front">
+    <div><img src="{{book.image}}"></div>
+  </div>
+  <div class="card-side back">
+    <div>
+       <div class="title" style=" margin-left: 7px;margin-right:7px;">{{book.title}}</div>
+     <p class="main-p" style=" margin-left: 7px;margin-right:7px;"> <p class="label">ISBN</p><p class="field">{{book.ISBN}}</p></p>
+      <p class="main-p" style=" margin-left: 7px;margin-right:7px;"><p class="label">Author</p><p class="field">{{book.authorNo}}</p></p>
+      <p class="price" style=" margin-left: 7px;margin-right:7px;">₹ {{book.price}}</p>
+     <div style=" margin-left: 7px;margin-right:7px;"><p class="description"> {{book.bookInfo}}</p></div>
+   
+    {{#if this.res}}
+    <p class="label" style="text-align:center ;margin-top:15px">{{this.message}}</p>
+    {{else}}
+    <button class="reserve" type="button" {{action "reserveBook" book.ISBN}}>Reserve</button>
+    {{/if}}
+    
+       
+      
+    </div>
+  </div>
+</div>
+{{/each}}
+
+{{/if}}
+
+
+
+
+{{#if this.isReturnBookDivVisible}}
+{{#if this.reservedBooks.length}}
+{{#each this.reservedBooks as |book|}}
+
+<div class="card">
+  <div class="card-side front">
+    <div><img src="{{book.image}}"></div>
+  </div>
+  <div class="card-side back">
+    <div>
+       <div class="title" style=" margin-left: 7px;margin-right:7px;">{{book.title}}</div>
+     <p class="main-p" style=" margin-left: 7px;margin-right:7px;"> <p class="label">ISBN</p><p class="field">{{book.ISBN}}</p></p>
+      <p class="main-p" style=" margin-left: 7px;margin-right:7px;"><p class="label">Author</p><p class="field">{{book.authorNo}}</p></p>
+      <br>
+    <div style=" margin-left: 7px;margin-right:7px;"><p class="description"> {{book.bookInfo}}</p></div>
+   
+    {{#if this.res}}
+        <p class="label" style="text-align:center ;margin-top:15px">{{this.message}}</p>
+    {{else}}
+    <button class="reserve" type="button" {{action "returnBooks" book.ISBN}}>Return</button>
+    {{/if}}
+    
+       
+      
+    </div>
+  </div>
+</div>
+{{/each}}
+{{else}}
+<div class="no-return-2">
+  <div class="no-return-image">
+    <img src="/assets/images/verify.png">
+    {{!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player  class="lottie" src="https://assets2.lottiefiles.com/packages/lf20_BF6OFq.json"  background="transparent"  speed="0.5"   autoplay></lottie-player>
+  {{!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> --}}
+<lottie-player class="lottie" src="https://assets2.lottiefiles.com/packages/lf20_BF6OFq.json"  background="transparent"  speed="1"  loop  autoplay></lottie-player> --}}
+  </div>
+  <div class="no-return-content">
+    <br>
+    <br>
+    <h1 style="margin-top:175px ;">No Books to <h1 style="color: #72A0C1;">Return!!</h1></h1>
+  </div>
+  </div>
+  <div class="book-container-p">&nbsp; &nbsp;UPCOMING BOOKS</div>
+  <br>
+  <br>
+  <br>
+  <div class="book-container">
+
+
+  <div class="book" >
+    <img src="https://assets.codepen.io/1025350/schitts-creek2.png" alt="the cast of Schitt’s Creek"  />
+  </div>
+  <div class="book">
+    <img src="https://i.pinimg.com/236x/f7/f9/a5/f7f9a59473d1e1f6700c43e1eff7287a--book-fairy-roses.jpg" alt="the cast of Schitt’s Creek" />
+  </div>
+
+
+  
+  <div class="book">
+    <img src="https://assets.codepen.io/1025350/pose.png" alt="Elektra Wintour from Pose" />
+  </div>
+
+  
+  <div class="book">
+    <img src="https://assets.codepen.io/1025350/janet.jpg" alt="Janet from The Good Place" />
+
+  </div>
+  
+</div>
+
+
+
+{{/if}}
+{{/if}}
+
+
+
+
+{{#if this.isPayDueDivVisible}}
+<div class="no-return-2">
+   <div class="no-return-image">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player  class="lottie" src="https://assets2.lottiefiles.com/packages/lf20_BF6OFq.json"  background="transparent"  speed="0.5"   autoplay></lottie-player></div>
+  {{!-- <div class="no-return-image">
+   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player class="lottie" src="https://assets10.lottiefiles.com/packages/lf20_DeQlmkfwM0.json"  background="transparent"  speed="1" loop  autoplay></lottie-player>  </div> --}}
+
+  {{#if this.due}}
+  <div class="no-return-content">
+    <h1 style="margin-top:175px ;">No Due </h1><h1 style="color: #72A0C1;"> to Pay!!</h1>
+  </div>
+  {{else}}
+  <div class="no-return-content">
+    <h1 style="margin-top:175px ;">Due Amount</h1><h1 style="color: #72A0C1;"> Rs.{{this.amount}}</h1>
+    <br>
+    <button class="info2" style="margin-left:170px ;margin-top:-20px;" type="button" {{action "Pay"}}>Pay Due</button>
+  </div>
+  {{/if}}
+  </div>  <div class="book-container-p">&nbsp; &nbsp;UPCOMING BOOKS</div>
+  <br>
+  <br>
+  <br>
+  <div class="book-container">
+
+
+  <div class="book" >
+    <img src="https://assets.codepen.io/1025350/schitts-creek2.png" alt="the cast of Schitt’s Creek"  />
+  </div>
+  <div class="book">
+    <img src="https://i.pinimg.com/236x/f7/f9/a5/f7f9a59473d1e1f6700c43e1eff7287a--book-fairy-roses.jpg" alt="the cast of Schitt’s Creek" />
+  </div>
+
+
+  
+  <div class="book">
+    <img src="https://assets.codepen.io/1025350/pose.png" alt="Elektra Wintour from Pose" />
+  </div>
+
+  
+  <div class="book">
+    <img src="https://assets.codepen.io/1025350/janet.jpg" alt="Janet from The Good Place" />
+
+  </div>
+  
+</div>
+
+
+{{/if}}
+
+
+
+{{#if this.isProfileVisible}}
+
+  <div class="profile">
+  <div class="profile-data">
+    {{#each this.profile as |profile|}}
+  <div class="grid-item"><p class="name">{{profile.first_name}}&nbsp;{{profile.last_name}}</p></div>
+  <div class="grid-item" style="display:flex ;"><p class="label">ID</p><p class="value"> &nbsp;{{profile.id}}</p></div>
+  <div class="grid-item"><p class="email-label">{{profile.email}}</p></div>  
+  <div class="grid-item"><p class="email-label">{{profile.mobile_no}}</p></div>
+  <div class="grid-item"><p class="email-label" style="color:white ;">{{profile.address}}</p></div>
+    {{/each}}
+  </div>
+  <div class="history-table">
+    <p>RECENT TRANSACTIONS</p>
+    <table >
+      <thead>
+        <tr>
+          <th>ISBN</th>
+          <th>Title</th>
+          <th>Issue Date</th>
+          <th>Return Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each this.history as |history|}}
+        <tr>
+          <td>{{history.ISBN}}</td>
+          <td>{{history.title}}</td>
+          <td>{{history.issue_date}}</td>
+          <td>{{history.return_date}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+  </div>
+  </div>
+  
+  
+
+{{/if}}
+</div>
+
+
+
+
+
+
+
+
+
+
+

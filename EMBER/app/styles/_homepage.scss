@@ -1,0 +1,234 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: black;
+    
+}
+
+// button {
+//     background-color:black; 
+//     border: none;
+    
+//     padding: 15px 32px;
+//     text-align: center;
+//     text-decoration: none;
+//     display: inline-block;
+//     font-size: 16px;
+//     margin: 4px 2px;
+//     cursor: pointer;
+//     border-radius:30px;
+//     -webkit-transition-duration: 0.4s; /* Safari */
+//     transition-duration: 0.4s;
+//     margin-top: 30px;
+//     font-family: sans-serif;
+//     color: #72A0C1;
+//     letter-spacing: 2px;
+//     font-size: 18px;
+//     font-weight: bold;
+//     text-transform: uppercase;
+//     border-radius: 1px;
+//     border-color: #72A0C1;
+    
+    
+//   }
+
+  .info {
+    background-color:black; 
+    border: none;
+    
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius:30px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    margin-top: 30px;
+    font-family: sans-serif;
+    color: #72A0C1;
+    letter-spacing: 2px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 1px;
+    border-color: #72A0C1;
+    border-color: #72A0C1;
+    color: #72A0C1;
+    margin-left: 220px;
+    border-radius:25px;
+    animation: fadeIn 3s;
+
+  }
+  
+  .info:hover {
+    background: #72A0C1;
+    color: white;
+  }
+
+  .info2 {
+    background-color:black; 
+    border: none;
+    
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius:30px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    margin-top: 30px;
+    font-family: sans-serif;
+    color: #72A0C1;
+    letter-spacing: 2px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 1px;
+    border-color: #72A0C1;
+    border-color: #72A0C1;
+    color: #72A0C1;
+  
+    border-radius:25px;
+    animation: fadeIn 3s;
+
+  }
+  
+  .info2:hover {
+    background: #72A0C1;
+    color:white;
+  }
+
+
+ 
+
+.netflix{
+    position: relative;
+    width: 385px;
+    height: 520px;
+    overflow: hidden;
+    transform: scale(.8);
+    margin-left: 190px;
+    
+}
+
+/* .netflix::before{
+    content: '';
+    position: absolute;
+    left:0;
+    bottom: -100px;
+    width:100%;
+    height: 520px;
+    background: #000;
+    z-index: 2;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    transform: scaleX(1.5);
+} */
+
+
+
+.netflix span:nth-child(1){
+    background: #7CB9E8;
+    left: 0;
+    position:absolute;
+    top :0;
+    width: 100%;
+    height: 120px;
+    animation: BottomToTop 2s linear forwards;
+}
+
+
+.netflix span:nth-child(2){
+    background: #72A0C1;
+    left: 0;
+    z-index: 1;
+    width: 700px;    
+    transform: rotate(-34deg);
+    box-shadow: 0 0 40px rgba(0,0,0,1);
+    margin-top: 99px;
+    position:absolute;
+    top :0;
+    margin-left: -96px;
+   
+    height: 120px;
+    
+}
+
+.netflix span:nth-child(3){
+    background: #7CB9E8;
+    right: 0;
+    margin-top: 284px;
+    position:absolute;
+    top :0;
+    width: 100%;
+    height: 120px;
+    animation: BottomToTop 2s linear forwards;
+    
+}
+
+h3{
+    position:relative;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: sans-serif;
+    color:white;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    margin-left: 30px;
+    margin-top: -50px;
+    
+}
+
+.netflix::after{
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    width:300%;
+    height: 100%;
+    background: linear-gradient(to right,transparent,#000,#000);
+    z-index:4;
+    animation:animate 1s linear forwards;
+}
+
+
+
+  
+  
+  
+  
+  
+  
+
+/* @keyframes animate{
+    0%{
+        top:0%;
+    }
+    100%{
+        top:-100%;
+        background: linear-gradient(to right,transparent,#000,#000);
+    }
+} */
+
+@keyframes BottomToTop{
+    from{
+        width: 0%;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+

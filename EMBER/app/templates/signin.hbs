@@ -1,0 +1,36 @@
+<div class="body-div">
+        <div class="login">
+      <div class="login-content-2">
+        <div class="login-top">
+            <br>
+          <h1 class="login-header">L O G I N</h1>
+          <br>
+
+          
+        </div>
+        <form  class="login-fields" {{on "submit" this.submitLoginForm}}>
+        {{!-- <div class="login-fields"> --}}
+          <div class="login-form">
+            <label for="">Email</label>
+            {{input type="email" value=(mut this.email)}}
+          </div>
+          <div class="login-form">
+            <label for="">Password</label>
+                {{input type="password" value=(mut this.password)}}
+          </div>
+          
+          
+          <button class="info2" type="submit">Sign In</button>
+        
+       
+        <br>
+        </form>
+        
+      </div>
+      
+            
+
+      <span class="login-signup">Dont have an account? <LinkTo @route="signup"><span>Sign Up</span></LinkTo></span>
+      
+    </div>
+</div>

@@ -1,0 +1,167 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body-div{
+  background: #080808;
+
+  display: flex;
+  font-family:  sans-serif;
+  color: white;
+  width: 100vw;
+  height: 100vh;
+}
+::placeholder {
+  opacity: 1; /* Make placeholder text fully visible */
+}
+input {
+  font-family:  sans-serif;
+}
+
+button {
+  font-family:  sans-serif;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 15px;
+  box-shadow: #72A0C1;
+
+}
+
+.login-content {
+  width: 450px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 780px;
+  align-items: center;
+  background: black;
+  padding: 40px 0;
+  animation: fadeIn 2s;
+}
+
+.login-content-2 {
+  width: 450px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  align-items: center;
+  background: black;
+  padding: 40px 0;
+  animation: fadeIn 2s;
+}
+
+.login-header {
+  
+  font-size: 30px;
+  margin-top: -25px;
+  color: #72A0C1;
+  
+}
+
+.login-top {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-cards {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+
+
+.login-fields {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label {
+  margin: 10px 0;
+  color: #72A0C1;
+  font-size: 20px;
+}
+
+.login-form input {
+  padding: 18px 15px;
+  border: none;
+  background-color: #232023;
+  font-size: 18px;
+  color:  rgb(185, 185, 185);
+  animation: fadeIn 3s;
+  margin-bottom: 5px;
+  
+}
+
+.name-input{
+  display: flex;
+}
+
+.name-input input {
+  padding: 18px 3px;
+  border: none;
+  background-color: #232023;
+  font-size: 18px;
+  text-align: center;
+  color:  rgb(185, 185, 185);
+  margin-right: 5px;
+  animation: fadeIn 3s;
+  width: 200px;
+  margin-bottom: 5px;
+}
+
+
+@keyframes fadeIn {
+  from {
+		opacity: 0;
+		transform: translate3d(0, -20%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+select{
+  padding: 18px 15px;
+  border: none;
+  background-color: #232023;
+  color:  rgb(185, 185, 185);
+  font-size: 18px;
+  animation: fadeIn 3s;
+
+}
+
+
+
+.login-signup {
+  margin: 20px 0;
+  color: white;
+  font-size: 20px;
+  animation: fadeIn 3s;
+}
+
+a.ember-view {
+  color: #72A0C1;
+  font-weight: 400;
+  font-size: 20px;
+  text-decoration: none;
+  animation: fadeIn 3s;
+}
