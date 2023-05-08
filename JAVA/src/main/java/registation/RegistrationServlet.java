@@ -52,13 +52,13 @@ public class RegistrationServlet extends HttpServlet {
 	  	System.out.print(requestBody);
 	  	Gson gson = new Gson();
 	  	Registration myObject = gson.fromJson(requestBody.toString(), Registration.class);
-	  	String email = myObject.getEmail();
-	  	String password=myObject.getPassword();
-		String first_name=myObject.getFirst_name();
-		String last_name=myObject.getLast_name();
-		String mobile_no=myObject.getMobile_no();
-		String address=myObject.getAddress();
-		String user_type=myObject.getUser_type();
+// 	  	String email = myObject.getEmail();
+// 	  	String password=myObject.getPassword();
+// 		String first_name=myObject.getFirst_name();
+// 		String last_name=myObject.getLast_name();
+// 		String mobile_no=myObject.getMobile_no();
+// 		String address=myObject.getAddress();
+// 		String user_type=myObject.getUser_type();
 		
 		
 	  	
@@ -75,20 +75,20 @@ public class RegistrationServlet extends HttpServlet {
 	      return;
 	    }
 	    
-	    Registration register=new Registration();
+// 	    Registration register=new Registration();
 	    
-	    register.setEmail(email);
-		register.setPassword(password);
-		register.setFirst_name(first_name);
-		register.setLast_name(last_name);
-		register.setMobile_no(mobile_no);
-		register.setAddress(address);
-		register.setUser_type(user_type); 
-		System.out.print(register.getAddress());
+// 	    register.setEmail(email);
+// 		register.setPassword(password);
+// 		register.setFirst_name(first_name);
+// 		register.setLast_name(last_name);
+// 		register.setMobile_no(mobile_no);
+// 		register.setAddress(address);
+// 		register.setUser_type(user_type); 
+// 		System.out.print(register.getAddress());
 		
 		RegistrationDAO user=new RegistrationDAO();
 	    try {
-			user.registerUser(register);
+			user.registerUser(myObject);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
